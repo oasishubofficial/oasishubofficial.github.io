@@ -1,0 +1,131 @@
+<svg width="1600" height="900" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E1F5FE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B3E5FC;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#skyGradient)"/>
+
+  <!-- Ground -->
+  <rect y="700" width="1600" height="200" fill="#81C784"/>
+
+  <!-- School building silhouette in background -->
+  <rect x="100" y="350" width="500" height="350" fill="#C5CAE9"/>
+  <rect x="200" y="400" width="80" height="100" fill="#3F51B5"/>
+  <rect x="320" y="400" width="80" height="100" fill="#3F51B5"/>
+  <rect x="440" y="400" width="80" height="100" fill="#3F51B5"/>
+  <rect x="280" y="550" width="100" height="150" fill="#1A237E"/>
+
+  <!-- Sun bursts -->
+  <circle cx="1400" cy="150" r="100" fill="#FFC107" opacity="0.3"/>
+  <circle cx="1400" cy="150" r="70" fill="#FFC107" opacity="0.5"/>
+  <circle cx="1400" cy="150" r="40" fill="#FFC107"/>
+
+  <!-- Happy students group -->
+  <!-- Back row students -->
+  <g id="student1">
+    <ellipse cx="500" cy="550" rx="50" ry="55" fill="#FFE0B2"/>
+    <rect x="460" y="605" width="80" height="120" fill="#E53935" rx="5"/>
+    <!-- Arms raised -->
+    <rect x="420" y="620" width="30" height="90" fill="#FFE0B2" rx="15" transform="rotate(-30 435 665)"/>
+    <rect x="550" y="620" width="30" height="90" fill="#FFE0B2" rx="15" transform="rotate(30 565 665)"/>
+    <!-- Graduation cap -->
+    <rect x="460" y="520" width="80" height="12" fill="#212121"/>
+    <polygon points="440,520 560,520 550,480 450,480" fill="#212121"/>
+    <circle cx="560" cy="510" r="10" fill="#FFC107"/>
+  </g>
+
+  <g id="student2">
+    <ellipse cx="750" cy="550" rx="50" ry="55" fill="#FFCCBC"/>
+    <rect x="710" y="605" width="80" height="120" fill="#2196F3" rx="5"/>
+    <rect x="670" y="620" width="30" height="90" fill="#FFCCBC" rx="15" transform="rotate(-30 685 665)"/>
+    <rect x="800" y="620" width="30" height="90" fill="#FFCCBC" rx="15" transform="rotate(30 815 665)"/>
+    <rect x="710" y="520" width="80" height="12" fill="#212121"/>
+    <polygon points="690,520 810,520 800,480 700,480" fill="#212121"/>
+    <circle cx="810" cy="510" r="10" fill="#FFC107"/>
+  </g>
+
+  <g id="student3">
+    <ellipse cx="1000" cy="550" rx="50" ry="55" fill="#FFE0B2"/>
+    <rect x="960" y="605" width="80" height="120" fill="#4CAF50" rx="5"/>
+    <rect x="920" y="620" width="30" height="90" fill="#FFE0B2" rx="15" transform="rotate(-30 935 665)"/>
+    <rect x="1050" y="620" width="30" height="90" fill="#FFE0B2" rx="15" transform="rotate(30 1065 665)"/>
+    <rect x="960" y="520" width="80" height="12" fill="#212121"/>
+    <polygon points="940,520 1060,520 1050,480 950,480" fill="#212121"/>
+    <circle cx="1060" cy="510" r="10" fill="#FFC107"/>
+  </g>
+
+  <!-- Front row students -->
+  <g id="student4">
+    <ellipse cx="350" cy="620" rx="55" ry="60" fill="#FFCCBC"/>
+    <rect x="305" y="680" width="90" height="130" fill="#9C27B0" rx="5"/>
+    <rect x="260" y="695" width="35" height="95" fill="#FFCCBC" rx="17" transform="rotate(-25 277 742)"/>
+    <rect x="395" y="695" width="35" height="95" fill="#FFCCBC" rx="17" transform="rotate(25 412 742)"/>
+    <rect x="305" y="585" width="90" height="14" fill="#212121"/>
+    <polygon points="280,585 420,585 408,540 292,540" fill="#212121"/>
+    <circle cx="420" cy="575" r="12" fill="#FFC107"/>
+  </g>
+
+  <g id="student5">
+    <ellipse cx="625" cy="620" rx="55" ry="60" fill="#FFE0B2"/>
+    <rect x="580" y="680" width="90" height="130" fill="#FF6F00" rx="5"/>
+    <rect x="535" y="695" width="35" height="95" fill="#FFE0B2" rx="17" transform="rotate(-25 552 742)"/>
+    <rect x="670" y="695" width="35" height="95" fill="#FFE0B2" rx="17" transform="rotate(25 687 742)"/>
+    <rect x="580" y="585" width="90" height="14" fill="#212121"/>
+    <polygon points="555,585 695,585 683,540 567,540" fill="#212121"/>
+    <circle cx="695" cy="575" r="12" fill="#FFC107"/>
+  </g>
+
+  <g id="student6">
+    <ellipse cx="900" cy="620" rx="55" ry="60" fill="#FFCCBC"/>
+    <rect x="855" y="680" width="90" height="130" fill="#FFC107" rx="5"/>
+    <rect x="810" y="695" width="35" height="95" fill="#FFCCBC" rx="17" transform="rotate(-25 827 742)"/>
+    <rect x="945" y="695" width="35" height="95" fill="#FFCCBC" rx="17" transform="rotate(25 962 742)"/>
+    <rect x="855" y="585" width="90" height="14" fill="#212121"/>
+    <polygon points="830,585 970,585 958,540 842,540" fill="#212121"/>
+    <circle cx="970" cy="575" r="12" fill="#FFC107"/>
+  </g>
+
+  <g id="student7">
+    <ellipse cx="1175" cy="620" rx="55" ry="60" fill="#FFE0B2"/>
+    <rect x="1130" y="680" width="90" height="130" fill="#00BCD4" rx="5"/>
+    <rect x="1085" y="695" width="35" height="95" fill="#FFE0B2" rx="17" transform="rotate(-25 1102 742)"/>
+    <rect x="1220" y="695" width="35" height="95" fill="#FFE0B2" rx="17" transform="rotate(25 1237 742)"/>
+    <rect x="1130" y="585" width="90" height="14" fill="#212121"/>
+    <polygon points="1105,585 1245,585 1233,540 1117,540" fill="#212121"/>
+    <circle cx="1245" cy="575" r="12" fill="#FFC107"/>
+  </g>
+
+  <!-- Celebration elements -->
+  <!-- Confetti -->
+  <rect x="300" y="200" width="15" height="30" fill="#F44336" rx="3" transform="rotate(20 307 215)"/>
+  <rect x="600" y="150" width="15" height="30" fill="#2196F3" rx="3" transform="rotate(-15 607 165)"/>
+  <rect x="900" y="180" width="15" height="30" fill="#4CAF50" rx="3" transform="rotate(25 907 195)"/>
+  <rect x="1200" y="220" width="15" height="30" fill="#9C27B0" rx="3" transform="rotate(-20 1207 235)"/>
+  <rect x="450" y="250" width="15" height="30" fill="#FF6F00" rx="3" transform="rotate(10 457 265)"/>
+
+  <circle cx="400" cy="300" r="12" fill="#FFC107"/>
+  <circle cx="700" cy="280" r="12" fill="#E91E63"/>
+  <circle cx="1000" cy="320" r="12" fill="#00BCD4"/>
+  <circle cx="1300" cy="350" r="12" fill="#8BC34A"/>
+
+  <!-- Stars -->
+  <text x="250" y="280" font-family="Arial, sans-serif" font-size="60" fill="#FFA726">★</text>
+  <text x="550" y="240" font-family="Arial, sans-serif" font-size="50" fill="#FFA726">★</text>
+  <text x="850" y="260" font-family="Arial, sans-serif" font-size="55" fill="#FFA726">★</text>
+  <text x="1150" y="300" font-family="Arial, sans-serif" font-size="50" fill="#FFA726">★</text>
+
+  <!-- Banner -->
+  <rect x="200" y="80" width="1200" height="100" fill="#2E7D32" rx="10"/>
+  <text x="800" y="145" font-family="Arial, sans-serif" font-size="60" fill="#FFFFFF" text-anchor="middle" font-weight="bold">FUTURE LEADERS!</text>
+
+  <!-- Balloons -->
+  <ellipse cx="150" cy="450" rx="40" ry="50" fill="#F44336" opacity="0.8"/>
+  <line x1="150" y1="500" x2="150" y2="600" stroke="#424242" stroke-width="2"/>
+
+  <ellipse cx="1450" cy="480" rx="40" ry="50" fill="#2196F3" opacity="0.8"/>
+  <line x1="1450" y1="530" x2="1450" y2="630" stroke="#424242" stroke-width="2"/>
+</svg>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Oasis Images</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #f0f0f0; }
+        canvas { border: 2px solid #333; margin: 10px; display: block; }
+        button { padding: 10px 20px; margin: 10px; font-size: 16px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Oasis Learning Hub - Image Generator</h1>
+    <button onclick="downloadAll()">Download All Images</button>
+
+    <script>
+        // Create canvas for each image
+        function createCanvas(width, height, id) {
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            canvas.id = id;
+            document.body.appendChild(canvas);
+            return canvas;
+        }
+
+        // Hero Background Image - Students Learning with Cricket
+        function generateHeroImage() {
+            const canvas = createCanvas(1920, 1080, 'hero');
+            const ctx = canvas.getContext('2d');
+
+            // Gradient background
+            const gradient = ctx.createLinearGradient(0, 0, 1920, 1080);
+            gradient.addColorStop(0, '#2E7D32');
+            gradient.addColorStop(0.5, '#1B5E20');
+            gradient.addColorStop(1, '#0D4715');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 1920, 1080);
+
+            // Add geometric patterns
+            ctx.globalAlpha = 0.1;
+            for(let i = 0; i < 50; i++) {
+                ctx.fillStyle = '#FFA726';
+                ctx.beginPath();
+                ctx.arc(Math.random()*1920, Math.random()*1080, Math.random()*100, 0, Math.PI*2);
+                ctx.fill();
+            }
+
+            ctx.globalAlpha = 1;
+
+            // Draw book icon (left)
+            ctx.fillStyle = '#FFA726';
+            ctx.fillRect(300, 400, 200, 280);
+            ctx.fillStyle = '#FF6F00';
+            ctx.fillRect(320, 420, 160, 240);
+
+            // Draw cricket bat (right)
+            ctx.fillStyle = '#FFA726';
+            ctx.fillRect(1420, 300, 80, 400);
+            ctx.beginPath();
+            ctx.ellipse(1460, 280, 60, 40, 0, 0, Math.PI*2);
+            ctx.fill();
+
+            // Center text area highlight
+            ctx.fillStyle = 'rgba(255,255,255,0.1)';
+            ctx.fillRect(600, 300, 720, 480);
+
+            return canvas;
+        }
+
+        // Classroom Image
+        function generateClassroomImage() {
+            const canvas = createCanvas(1200, 800, 'classroom');
+            const ctx = canvas.getContext('2d');
+
+            // Background
+            ctx.fillStyle = '#E8F5E9';
+            ctx.fillRect(0, 0, 1200, 800);
+
+            // Floor
+            ctx.fillStyle = '#BCAAA4';
+            ctx.fillRect(0, 600, 1200, 200);
+
+            // Desks
+            for(let i = 0; i < 3; i++) {
+                for(let j = 0; j < 4; j++) {
+                    ctx.fillStyle = '#8D6E63';
+                    ctx.fillRect(150 + i*350, 400 + j*80, 200, 60);
+
+                    // Students (circles for heads)
+                    ctx.fillStyle = '#FFE0B2';
+                    ctx.beginPath();
+                    ctx.arc(250 + i*350, 380 + j*80, 25, 0, Math.PI*2);
+                    ctx.fill();
+                }
+            }
+
+            // Blackboard
+            ctx.fillStyle = '#37474F';
+            ctx.fillRect(100, 100, 1000, 250);
+
+            // Math equation on board
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = 'bold 60px Arial';
+            ctx.fillText('a² + b² = c²', 350, 200);
+
+            // Teacher
+            ctx.fillStyle = '#FFE0B2';
+            ctx.beginPath();
+            ctx.arc(150, 250, 40, 0, Math.PI*2);
+            ctx.fill();
+            ctx.fillStyle = '#2E7D32';
+            ctx.fillRect(120, 290, 60, 100);
+
+            return canvas;
+        }
+
+        // Cricket Practice Image
+        function generateCricketImage() {
+            const canvas = createCanvas(1200, 800, 'cricket');
+            const ctx = canvas.getContext('2d');
+
+            // Sky
+            const skyGradient = ctx.createLinearGradient(0, 0, 0, 400);
+            skyGradient.addColorStop(0, '#81C784');
+            skyGradient.addColorStop(1, '#66BB6A');
+            ctx.fillStyle = skyGradient;
+            ctx.fillRect(0, 0, 1200, 400);
+
+            // Ground
+            ctx.fillStyle = '#4CAF50';
+            ctx.fillRect(0, 400, 1200, 400);
+
+            // Cricket pitch
+            ctx.fillStyle = '#8D6E63';
+            ctx.fillRect(400, 350, 400, 500);
+
+            // Stumps
+            ctx.fillStyle = '#FFF';
+            for(let i = 0; i < 3; i++) {
+                ctx.fillRect(540 + i*30, 500, 8, 80);
+            }
+            for(let i = 0; i < 3; i++) {
+                ctx.fillRect(540 + i*30, 650, 8, 80);
+            }
+
+            // Players (simplified)
+            // Batsman
+            ctx.fillStyle = '#FFE0B2';
+            ctx.beginPath();
+            ctx.arc(600, 600, 30, 0, Math.PI*2);
+            ctx.fill();
+            ctx.fillStyle = '#1976D2';
+            ctx.fillRect(580, 630, 40, 60);
+
+            // Cricket bat
+            ctx.fillStyle = '#8D6E63';
+            ctx.fillRect(640, 640, 80, 15);
+
+            // Bowler
+            ctx.fillStyle = '#FFE0B2';
+            ctx.beginPath();
+            ctx.arc(600, 480, 25, 0, Math.PI*2);
+            ctx.fill();
+            ctx.fillStyle = '#FF6F00';
+            ctx.fillRect(585, 505, 30, 50);
+
+            // Ball
+            ctx.fillStyle = '#E53935';
+            ctx.beginPath();
+            ctx.arc(600, 570, 10, 0, Math.PI*2);
+            ctx.fill();
+
+            return canvas;
+        }
+
+        // Study with Sports Balance Image
+        function generateBalanceImage() {
+            const canvas = createCanvas(1200, 800, 'balance');
+            const ctx = canvas.getContext('2d');
+
+            // Background
+            const bgGradient = ctx.createLinearGradient(0, 0, 1200, 800);
+            bgGradient.addColorStop(0, '#FFF9C4');
+            bgGradient.addColorStop(1, '#FFECB3');
+            ctx.fillStyle = bgGradient;
+            ctx.fillRect(0, 0, 1200, 800);
+
+            // Left side - Study
+            ctx.fillStyle = '#2E7D32';
+            ctx.fillRect(50, 200, 500, 400);
+
+            // Books
+            for(let i = 0; i < 5; i++) {
+                ctx.fillStyle = ['#F44336', '#2196F3', '#4CAF50', '#FFC107', '#9C27B0'][i];
+                ctx.fillRect(100 + i*60, 300 - i*20, 50, 200);
+            }
+
+            // Pencil
+            ctx.fillStyle = '#FFC107';
+            ctx.fillRect(250, 500, 150, 30);
+            ctx.fillStyle = '#FFE0B2';
+            ctx.beginPath();
+            ctx.moveTo(400, 500);
+            ctx.lineTo(430, 515);
+            ctx.lineTo(400, 530);
+            ctx.fill();
+
+            // Right side - Sports
+            ctx.fillStyle = '#FF6F00';
+            ctx.fillRect(650, 200, 500, 400);
+
+            // Cricket ball
+            ctx.fillStyle = '#E53935';
+            ctx.beginPath();
+            ctx.arc(800, 350, 60, 0, Math.PI*2);
+            ctx.fill();
+            ctx.strokeStyle = '#FFF';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.arc(800, 350, 60, Math.PI*0.3, Math.PI*1.7);
+            ctx.stroke();
+
+            // Trophy
+            ctx.fillStyle = '#FFC107';
+            ctx.fillRect(930, 450, 100, 30);
+            ctx.fillRect(950, 350, 60, 100);
+            ctx.beginPath();
+            ctx.ellipse(980, 340, 70, 30, 0, 0, Math.PI);
+            ctx.fill();
+            ctx.fillRect(960, 480, 40, 80);
+            ctx.fillRect(940, 560, 80, 20);
+
+            // Center balance symbol
+            ctx.strokeStyle = '#1B5E20';
+            ctx.lineWidth = 10;
+            ctx.beginPath();
+            ctx.moveTo(600, 100);
+            ctx.lineTo(600, 700);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(450, 400);
+            ctx.lineTo(750, 400);
+            ctx.stroke();
+
+            return canvas;
+        }
+
+        // Happy Students Image
+        function generateStudentsImage() {
+            const canvas = createCanvas(1200, 800, 'students');
+            const ctx = canvas.getContext('2d');
+
+            // Background
+            ctx.fillStyle = '#E1F5FE';
+            ctx.fillRect(0, 0, 1200, 800);
+
+            // Ground
+            ctx.fillStyle = '#81C784';
+            ctx.fillRect(0, 600, 1200, 200);
+
+            // Students in a group
+            const colors = ['#FF6F00', '#2E7D32', '#1976D2', '#F44336', '#9C27B0', '#FFC107'];
+            const positions = [
+                [300, 500], [500, 500], [700, 500], [900, 500],
+                [400, 400], [600, 400], [800, 400]
+            ];
+
+            positions.forEach((pos, i) => {
+                // Head
+                ctx.fillStyle = '#FFE0B2';
+                ctx.beginPath();
+                ctx.arc(pos[0], pos[1], 40, 0, Math.PI*2);
+                ctx.fill();
+
+                // Body
+                ctx.fillStyle = colors[i % colors.length];
+                ctx.fillRect(pos[0] - 30, pos[1] + 40, 60, 80);
+
+                // Arms raised (celebrating)
+                ctx.fillStyle = '#FFE0B2';
+                ctx.fillRect(pos[0] - 50, pos[1] + 40, 20, 60);
+                ctx.fillRect(pos[0] + 30, pos[1] + 40, 20, 60);
+            });
+
+            // Graduation caps
+            positions.forEach(pos => {
+                ctx.fillStyle = '#212121';
+                ctx.fillRect(pos[0] - 35, pos[1] - 50, 70, 10);
+                ctx.beginPath();
+                ctx.moveTo(pos[0] - 50, pos[1] - 50);
+                ctx.lineTo(pos[0] + 50, pos[1] - 50);
+                ctx.lineTo(pos[0] + 40, pos[1] - 80);
+                ctx.lineTo(pos[0] - 40, pos[1] - 80);
+                ctx.fill();
+            });
+
+            return canvas;
+        }
+
+        // Success/Achievement Image
+        function generateSuccessImage() {
+            const canvas = createCanvas(1200, 800, 'success');
+            const ctx = canvas.getContext('2d');
+
+            // Background
+            const gradient = ctx.createRadialGradient(600, 400, 100, 600, 400, 600);
+            gradient.addColorStop(0, '#FFF59D');
+            gradient.addColorStop(1, '#FFE082');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 1200, 800);
+
+            // Stars/sparkles
+            ctx.fillStyle = '#FFA726';
+            const stars = [
+                [200, 150], [400, 100], [800, 120], [1000, 180],
+                [150, 600], [350, 650], [850, 620], [1050, 680],
+                [600, 80]
+            ];
+
+            stars.forEach(star => {
+                ctx.save();
+                ctx.translate(star[0], star[1]);
+                ctx.beginPath();
+                for(let i = 0; i < 5; i++) {
+                    ctx.lineTo(Math.cos((i * 4 * Math.PI) / 5) * 30,
+                              Math.sin((i * 4 * Math.PI) / 5) * 30);
+                }
+                ctx.closePath();
+                ctx.fill();
+                ctx.restore();
+            });
+
+            // Trophy in center
+            ctx.fillStyle = '#FFC107';
+            ctx.fillRect(500, 500, 200, 50);
+            ctx.fillRect(550, 350, 100, 150);
+            ctx.beginPath();
+            ctx.ellipse(600, 330, 120, 50, 0, 0, Math.PI);
+            ctx.fill();
+
+            // Handles
+            ctx.strokeStyle = '#FFC107';
+            ctx.lineWidth = 15;
+            ctx.beginPath();
+            ctx.arc(530, 400, 40, Math.PI*0.5, Math.PI*1.5);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(670, 400, 40, Math.PI*1.5, Math.PI*0.5);
+            ctx.stroke();
+
+            // Base
+            ctx.fillStyle = '#FFC107';
+            ctx.fillRect(560, 550, 80, 120);
+            ctx.fillRect(520, 670, 160, 30);
+
+            // Medal
+            ctx.fillStyle = '#FF6F00';
+            ctx.beginPath();
+            ctx.arc(600, 280, 80, 0, Math.PI*2);
+            ctx.fill();
+
+            ctx.fillStyle = '#FFF';
+            ctx.font = 'bold 60px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('1', 600, 305);
+
+            return canvas;
+        }
+
+        // Generate all images
+        const canvases = [
+            generateHeroImage(),
+            generateClassroomImage(),
+            generateCricketImage(),
+            generateBalanceImage(),
+            generateStudentsImage(),
+            generateSuccessImage()
+        ];
+
+        // Download function
+        function downloadAll() {
+            const names = ['hero-bg', 'classroom', 'cricket-practice', 'balanced-learning', 'happy-students', 'success'];
+            canvases.forEach((canvas, i) => {
+                const link = document.createElement('a');
+                link.download = `oasis-${names[i]}.jpg`;
+                link.href = canvas.toDataURL('image/jpeg', 0.9);
+                link.click();
+            });
+        }
+    </script>
+</body>
+</html>
