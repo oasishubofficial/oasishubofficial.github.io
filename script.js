@@ -538,4 +538,4 @@ window.printEnrollmentReceipt = printEnrollmentReceipt;
 // ===========================
 console.log('%c Welcome to Oasis Learning Hub! ', 'background: #2E7D32; color: white; font-size: 16px; padding: 10px;');
 console.log('%c Where Learning Meets Excellence ', 'background: #FF6F00; color: white; font-size: 12px; padding: 5px;');
-console.log('For technical support, contact: info@oasishub.in');
+console.log('For technical support, contact: oasislearninghub.xyz@gmail.com');
