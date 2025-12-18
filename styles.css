@@ -1049,49 +1049,6 @@ a {
 }
 
 /* ===========================
-   Contact Section
-   =========================== */
-.contact {
-    padding: var(--spacing-xl) 0;
-    background: var(--gray-50);
-}
-
-.contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-}
-
-.contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.contact-item h3 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-
-.contact-item p {
-    color: var(--text-light);
-    margin: 0;
-}
-
-.contact-form-container {
-    background: var(--white);
-    padding: var(--spacing-md);
-    border-radius: 16px;
-    box-shadow: var(--shadow-lg);
-}
-
-.contact-form h3 {
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-/* ===========================
    Footer
    =========================== */
 .footer {
