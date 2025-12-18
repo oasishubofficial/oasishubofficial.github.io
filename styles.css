@@ -1009,6 +1009,103 @@ a {
 }
 
 /* ===========================
+   Inquiry Section
+   =========================== */
+.inquiry-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--white);
+    border-top: 1px solid var(--gray-200);
+}
+
+.inquiry-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.inquiry-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.inquiry-benefits {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.inquiry-benefits li {
+    padding: 0.5rem 0;
+    color: var(--text-dark);
+    font-size: 1rem;
+}
+
+.whatsapp-connect {
+    background: #f0f9f0;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 2px solid #e8f5e8;
+}
+
+.whatsapp-connect p {
+    margin: 0 0 1rem 0;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.whatsapp-btn {
+    display: inline-block;
+    background: #25d366;
+    color: white;
+    padding: 0.875rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-fast);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-btn:hover {
+    background: #128c7e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-note {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    margin-top: 0.5rem;
+}
+
+.inquiry-form-container {
+    background: var(--gray-50);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.inquiry-form-container iframe {
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    min-height: 600px;
+}
+
+.form-alternative {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--gray-200);
+}
+
+.form-alternative p {
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+/* ===========================
    Contact Section
    =========================== */
 .contact {
