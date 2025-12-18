@@ -832,6 +832,43 @@ a {
 }
 
 /* ===========================
+   Video Gallery Section
+   =========================== */
+.video-gallery {
+    padding: var(--spacing-xl) 0;
+    background: var(--gray-50);
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.video-item {
+    text-align: center;
+}
+
+.video-item video {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 1rem;
+}
+
+.video-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.video-item p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* ===========================
    Enrollment Section
    =========================== */
 .enrollment {
@@ -1178,7 +1215,8 @@ a {
         grid-template-columns: 1fr;
     }
 
-    .gallery-grid {
+    .gallery-grid,
+    .video-grid {
         grid-template-columns: 1fr;
     }
 
