@@ -906,63 +906,6 @@ a {
 }
 
 /* ===========================
-   Enrollment Section
-   =========================== */
-.enrollment {
-    padding: var(--spacing-xl) 0;
-    background: var(--white);
-}
-
-.enrollment-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
-}
-
-.enrollment-info h2 {
-    color: var(--primary-color);
-    font-family: var(--font-heading);
-    margin-bottom: 1rem;
-}
-
-.enrollment-features {
-    margin-top: 2rem;
-}
-
-.enroll-feature {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin: 1rem 0;
-}
-
-.check-icon {
-    width: 30px;
-    height: 30px;
-    background: var(--primary-color);
-    color: var(--white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.enrollment-form-container {
-    background: var(--gray-50);
-    padding: var(--spacing-md);
-    border-radius: 16px;
-    box-shadow: var(--shadow-lg);
-}
-
-.enrollment-form h3 {
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-/* ===========================
    Forms
    =========================== */
 .form-group {
@@ -1326,8 +1269,7 @@ a {
     }
 
     .about-content,
-    .enrollment-wrapper,
-    .contact-content {
+    .enrollment-wrapper {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
