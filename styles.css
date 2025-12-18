@@ -1338,6 +1338,39 @@ a {
         grid-template-columns: 1fr;
     }
 
+    .video-showcase {
+        padding: 0 1rem;
+    }
+
+    .video-row {
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .video-item.featured,
+    .video-item.medium,
+    .video-item.small {
+        max-width: 100%;
+        min-height: 280px;
+    }
+
+    .video-content {
+        padding: 1rem;
+    }
+
+    .video-item.featured h3 {
+        font-size: 1.2rem;
+    }
+
+    .video-item h3 {
+        font-size: 1rem;
+    }
+
+    .video-item p {
+        font-size: 0.8rem;
+    }
+
     .carousel-btn {
         width: 45px;
         height: 45px;
@@ -1354,6 +1387,20 @@ a {
 
     .carousel-caption p {
         font-size: 0.9375rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .video-row {
+        gap: 1.5rem;
+    }
+
+    .video-item.medium {
+        max-width: 400px;
+    }
+
+    .video-item.small {
+        max-width: 300px;
     }
 }
 
