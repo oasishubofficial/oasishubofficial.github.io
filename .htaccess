@@ -1,0 +1,14 @@
+# Video MIME Types
+AddType video/mp4 .mp4
+AddType video/webm .webm
+AddType video/ogg .ogv
+
+# Enable CORS for video files
+<FilesMatch "\.(mp4|webm|ogv)$">
+    Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+
+# Enable compression for video files
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE video/mp4 video/webm video/ogg
+</IfModule>
