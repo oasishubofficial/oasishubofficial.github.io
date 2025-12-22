@@ -1632,6 +1632,18 @@ a {
     color: #2e7d32;
 }
 
+.room-card-link {
+    text-decoration: none;
+    display: block;
+    transition: var(--transition-normal);
+}
+
+.room-card-link:hover .room-card {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+}
+
 .facilities {
     padding: var(--spacing-xl) 0;
     background: var(--gray-100);
