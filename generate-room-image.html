@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Room Image</title>
+</head>
+<body>
+    <canvas id="roomCanvas" width="1200" height="800"></canvas>
+    <script>
+        function generateRoomImage() {
+            const canvas = document.getElementById('roomCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Room background - light walls
+            ctx.fillStyle = '#F5F5F5';
+            ctx.fillRect(0, 0, 1200, 800);
+
+            // Floor
+            ctx.fillStyle = '#E8F5E8';
+            ctx.fillRect(0, 600, 1200, 200);
+
+            // Door
+            ctx.fillStyle = '#8D6E63';
+            ctx.fillRect(1100, 200, 80, 400);
+            // Door handle
+            ctx.fillStyle = '#FFD700';
+            ctx.beginPath();
+            ctx.arc(1140, 400, 8, 0, Math.PI*2);
+            ctx.fill();
+
+            // Door mat
+            ctx.fillStyle = '#8B4513';
+            ctx.fillRect(1080, 580, 120, 20);
+            ctx.strokeStyle = '#654321';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(1080, 580, 120, 20);
+
+            // Window with curtains
+            ctx.fillStyle = '#87CEEB';
+            ctx.fillRect(800, 100, 200, 150);
+            // Window frame
+            ctx.strokeStyle = '#8B4513';
+            ctx.lineWidth = 4;
+            ctx.strokeRect(800, 100, 200, 150);
+            // Window cross
+            ctx.beginPath();
+            ctx.moveTo(900, 100);
+            ctx.lineTo(900, 250);
+            ctx.moveTo(800, 175);
+            ctx.lineTo(1000, 175);
+            ctx.stroke();
+
+            // Curtains
+            ctx.fillStyle = '#FFF8DC';
+            ctx.fillRect(780, 80, 40, 200); // Left curtain
+            ctx.fillRect(1000, 80, 40, 200); // Right curtain
+
+            // Bed
+            ctx.fillStyle = '#8B4513';
+            ctx.fillRect(100, 450, 300, 150); // Bed frame
+            ctx.fillStyle = '#FFF';
+            ctx.fillRect(110, 460, 280, 130); // Mattress
+            // Bed headboard
+            ctx.fillStyle = '#654321';
+            ctx.fillRect(80, 400, 340, 50);
+
+            // Study table
+            ctx.fillStyle = '#8B4513';
+            ctx.fillRect(500, 400, 200, 100); // Table top
+            ctx.fillRect(520, 500, 20, 100); // Left leg
+            ctx.fillRect(660, 500, 20, 100); // Right leg
+
+            // Chair
+            ctx.fillStyle = '#654321';
+            ctx.fillRect(550, 350, 60, 60); // Seat
+            ctx.fillRect(570, 290, 20, 60); // Backrest
+            ctx.fillRect(560, 410, 15, 80); // Left leg
+            ctx.fillRect(585, 410, 15, 80); // Right leg
+
+            // Almira (wardrobe)
+            ctx.fillStyle = '#8B4513';
+            ctx.fillRect(50, 200, 150, 200);
+            // Doors
+            ctx.strokeStyle = '#654321';
+            ctx.lineWidth = 3;
+            ctx.strokeRect(50, 200, 75, 200);
+            ctx.strokeRect(125, 200, 75, 200);
+            // Handle
+            ctx.fillStyle = '#FFD700';
+            ctx.beginPath();
+            ctx.arc(112, 300, 5, 0, Math.PI*2);
+            ctx.fill();
+
+            // Whiteboard
+            ctx.fillStyle = '#FFF';
+            ctx.fillRect(750, 300, 200, 120);
+            ctx.strokeStyle = '#CCC';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(750, 300, 200, 120);
+            // Border
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 4;
+            ctx.strokeRect(745, 295, 210, 130);
+
+            // Pin up board
+            ctx.fillStyle = '#8B4513';
+            ctx.fillRect(750, 450, 200, 120);
+            ctx.fillStyle = '#228B22';
+            ctx.fillRect(760, 460, 180, 100);
+
+            // Fan
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.arc(300, 150, 40, 0, Math.PI*2);
+            ctx.stroke();
+            // Fan blades
+            ctx.beginPath();
+            ctx.moveTo(300, 110);
+            ctx.lineTo(300, 190);
+            ctx.moveTo(260, 150);
+            ctx.lineTo(340, 150);
+            ctx.stroke();
+
+            // Cooler
+            ctx.fillStyle = '#E0E0E0';
+            ctx.fillRect(450, 150, 80, 120);
+            ctx.strokeStyle = '#CCC';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(450, 150, 80, 120);
+            // Cooler grill
+            ctx.fillStyle = '#87CEEB';
+            ctx.fillRect(460, 160, 60, 40);
+            ctx.strokeStyle = '#4682B4';
+            ctx.lineWidth = 1;
+            for(let i = 0; i < 5; i++) {
+                ctx.beginPath();
+                ctx.moveTo(460, 170 + i*8);
+                ctx.lineTo(520, 170 + i*8);
+                ctx.stroke();
+            }
+
+            // Dustbin
+            ctx.fillStyle = '#333';
+            ctx.beginPath();
+            ctx.arc(700, 550, 20, 0, Math.PI*2);
+            ctx.fill();
+            ctx.fillRect(680, 550, 40, 50);
+
+            // Oasis Learning Hub branding
+            ctx.fillStyle = '#2E7D32';
+            ctx.font = 'bold 24px Arial';
+            ctx.fillText('Oasis Rentals', 50, 50);
+
+            ctx.fillStyle = '#666';
+            ctx.font = '16px Arial';
+            ctx.fillText('Premium Student Accommodation', 50, 75);
+
+            // Download the image
+            const link = document.createElement('a');
+            link.download = 'oasis-room-facilities.jpg';
+            link.href = canvas.toDataURL('image/jpeg', 0.9);
+            link.click();
+        }
+
+        // Generate and download the image automatically
+        generateRoomImage();
+    </script>
+</body>
+</html>
