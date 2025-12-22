@@ -973,6 +973,35 @@ a {
     font-size: 1.5rem;
 }
 
+.mandatory-notice {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    border: 2px solid #f39c12;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.mandatory-notice p {
+    margin: 0 0 1rem 0;
+    font-weight: 600;
+    color: #d68910;
+}
+
+.form-requirements {
+    background: #fff5f5;
+    border: 1px solid #e74c3c;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.form-requirements p {
+    margin: 0;
+    color: #c0392b;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
 .inquiry-benefits {
     list-style: none;
     padding: 0;
@@ -985,55 +1014,18 @@ a {
     font-size: 1rem;
 }
 
-.whatsapp-connect {
-    background: #f0f9f0;
-    padding: 1.5rem;
-    border-radius: 12px;
-    border: 2px solid #e8f5e8;
-}
-
-.whatsapp-connect p {
-    margin: 0 0 1rem 0;
-    font-weight: 600;
-    color: var(--primary-color);
-}
-
-.whatsapp-btn {
-    display: inline-block;
-    background: #25d366;
-    color: white;
-    padding: 0.875rem 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: var(--transition-fast);
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-}
-
-.whatsapp-btn:hover {
-    background: #128c7e;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
-}
-
-.whatsapp-note {
-    font-size: 0.875rem;
-    color: var(--text-light);
-    margin-top: 0.5rem;
-}
-
-.inquiry-form-container {
+.inquiry-form {
     background: var(--gray-50);
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.inquiry-form-container iframe {
+.inquiry-form iframe {
     border: none;
     border-radius: 8px;
     width: 100%;
-    min-height: 600px;
+    min-height: 800px;
 }
 
 .form-alternative {
