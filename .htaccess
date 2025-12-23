@@ -12,3 +12,38 @@ AddType video/ogg .ogv
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE video/mp4 video/webm video/ogg
 </IfModule>
+
+# Rate Limiting Configuration
+# Limit requests per IP per minute
+<IfModule mod_evasive24.c>
+    DOSHashTableSize 2097152
+    DOSPageCount 5
+    DOSPageInterval 1
+    DOSSiteCount 100
+    DOSSiteInterval 1
+    DOSBlockingPeriod 600
+</IfModule>
+
+# Alternative rate limiting (requires mod_security)
+<IfModule mod_security.c>
+    SecRuleEngine On
+    SecRequestBodyAccess On
+
+    # Limit requests per IP per minute
+    SecAction "id:1000,phase:1,nolog,pass,setvar:ip.req_count=+1"
+    SecRule IP:req_count "@gt 60" "id:1001,phase:1,deny,status:429,log,msg:'Rate limit exceeded'"
+
+    # Reset counter every minute
+    SecAction "id:1002,phase:1,nolog,pass,setvar:!ip.req_count"
+</IfModule>
+
+# Connection limits
+<IfModule mod_limitipconn.c>
+    MaxConnPerIP 10
+    NoLimitIP 127.0.0.1
+</IfModule>
+
+# Keep-alive settings
+KeepAlive On
+MaxKeepAliveRequests 100
+KeepAliveTimeout 5

@@ -398,6 +398,165 @@ function printEnrollmentReceipt(enrollmentId) {
     receiptWindow.print();
 }
 
+// ===========================
+// Rate Limiting Configuration
+// ===========================
+class RateLimiter {
+    constructor(maxRequests = 10, timeWindow = 60000) { // 10 requests per minute default
+        this.maxRequests = maxRequests;
+        this.timeWindow = timeWindow;
+        this.requests = [];
+    }
+
+    canMakeRequest() {
+        const now = Date.now();
+        // Remove old requests outside the time window
+        this.requests = this.requests.filter(time => now - time < this.timeWindow);
+
+        if (this.requests.length >= this.maxRequests) {
+            return false;
+        }
+
+        this.requests.push(now);
+        return true;
+    }
+
+    getRemainingRequests() {
+        const now = Date.now();
+        this.requests = this.requests.filter(time => now - time < this.timeWindow);
+        return Math.max(0, this.maxRequests - this.requests.length);
+    }
+
+    getResetTime() {
+        if (this.requests.length === 0) return 0;
+        return this.requests[0] + this.timeWindow;
+    }
+}
+
+// Global rate limiter instances
+const globalRateLimiter = new RateLimiter(50, 60000); // 50 requests per minute
+const formRateLimiter = new RateLimiter(5, 300000); // 5 form interactions per 5 minutes
+const clickRateLimiter = new RateLimiter(20, 10000); // 20 clicks per 10 seconds
+
+// ===========================
+// Rate Limited Event Handler
+// ===========================
+function addRateLimitedEventListener(element, event, handler, rateLimiter = globalRateLimiter) {
+    element.addEventListener(event, function(e) {
+        if (!rateLimiter.canMakeRequest()) {
+            e.preventDefault();
+            const resetTime = Math.ceil((rateLimiter.getResetTime() - Date.now()) / 1000);
+            showRateLimitMessage(`Too many requests. Please wait ${resetTime} seconds.`, 'warning');
+            return false;
+        }
+        return handler.apply(this, arguments);
+    });
+}
+
+// ===========================
+// Rate Limit Message Display
+// ===========================
+function showRateLimitMessage(message, type = 'info') {
+    // Remove existing messages
+    const existingMessages = document.querySelectorAll('.rate-limit-message');
+    existingMessages.forEach(msg => msg.remove());
+
+    // Create new message
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `rate-limit-message ${type}`;
+    messageDiv.innerHTML = `
+        <div style="
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: ${type === 'warning' ? '#f39c12' : '#3498db'};
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 10000;
+            font-family: 'Poppins', sans-serif;
+            max-width: 300px;
+            animation: slideIn 0.3s ease-out;
+        ">
+            <strong>⚠️ Rate Limit</strong><br>
+            ${message}
+        </div>
+    `;
+
+    document.body.appendChild(messageDiv);
+
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        if (messageDiv.parentNode) {
+            messageDiv.remove();
+        }
+    }, 5000);
+}
+
+// ===========================
+// Apply Rate Limiting to Interactive Elements
+// ===========================
+document.addEventListener('DOMContentLoaded', function() {
+    // Rate limit all button clicks
+    const buttons = document.querySelectorAll('button, .btn, .whatsapp-btn');
+    buttons.forEach(button => {
+        addRateLimitedEventListener(button, 'click', function(e) {
+            // Original click behavior is preserved
+        }, clickRateLimiter);
+    });
+
+    // Rate limit form interactions
+    const forms = document.querySelectorAll('form, iframe[src*="forms"]');
+    forms.forEach(form => {
+        addRateLimitedEventListener(form, 'submit', function(e) {
+            if (!formRateLimiter.canMakeRequest()) {
+                e.preventDefault();
+                return false;
+            }
+        }, formRateLimiter);
+    });
+
+    // Rate limit link clicks (external links)
+    const externalLinks = document.querySelectorAll('a[href^="http"], a[href^="https"]');
+    externalLinks.forEach(link => {
+        addRateLimitedEventListener(link, 'click', function(e) {
+            // Allow the link to work normally
+        }, globalRateLimiter);
+    });
+});
+
+// ===========================
+// Add CSS for rate limit animations
+// ===========================
+const rateLimitStyles = `
+<style>
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.rate-limit-message {
+    pointer-events: none;
+}
+
+.rate-limit-message > div {
+    pointer-events: auto;
+}
+</style>
+`;
+
+// Inject styles
+document.addEventListener('DOMContentLoaded', function() {
+    document.head.insertAdjacentHTML('beforeend', rateLimitStyles);
+});
+
 window.printEnrollmentReceipt = printEnrollmentReceipt;
 
 // ===========================
