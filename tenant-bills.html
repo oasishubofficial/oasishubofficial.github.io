@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tenant login for Oasis Rentals to view room bills after email/mobile verification and password access.">
+    <meta name="keywords" content="tenant login, room bills, rental bills, mobile verification, email verification, oasis rentals">
+    <meta name="author" content="Oasis Learning Hub">
+    <meta property="og:title" content="Tenant Login - Oasis Rentals">
+    <meta property="og:description" content="Secure tenant login to view room bills and billing history.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.oasishub.in/tenant-bills.html">
+    <meta property="og:image" content="assets/images/hero-background.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tenant Login - Oasis Rentals">
+    <meta name="twitter:description" content="Secure tenant login to view room bills and billing history.">
+    <link rel="canonical" href="https://www.oasishub.in/tenant-bills.html">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <title>🌿 Tenant Login - View Bills | Oasis Rentals</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <a href="index.html">
+                            <h1>🌿 Oasis Learning Hub</h1>
+                            <p class="tagline">Where Learning Meets Excellence</p>
+                        </a>
+                    </div>
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul class="nav-menu">
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#vision">Vision</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#programs">Programs</a></li>
+                        <li><a href="index.html#videos">Videos</a></li>
+                        <li><a href="index.html#inquiry">Inquiry</a></li>
+                        <li><a href="whispering-woods.html">Whispering Woods</a></li>
+                        <li><a href="rental.html">Rentals</a></li>
+                        <li><a href="tenant-bills.html" class="active">Tenant Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="container">
+                <div class="hero-text">
+                    <h2 class="hero-title">Tenant Bill Access</h2>
+                    <p class="hero-subtitle">Secure login for room bill details</p>
+                    <p class="hero-description">Verify with email or mobile number plus password to view your rental bill history.</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <section class="tenant-login-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tenant Verification</h2>
+                <p>Enter your registered email/mobile and password to view bills for your room.</p>
+            </div>
+            <div class="tenant-login-content">
+                <form id="tenantLoginForm" class="tenant-form">
+                    <div class="form-group">
+                        <label for="tenantContact">Email or Mobile Number</label>
+                        <input type="text" id="tenantContact" name="tenantContact" placeholder="Enter registered email or mobile number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tenantPassword">Password</label>
+                        <input type="password" id="tenantPassword" name="tenantPassword" placeholder="Enter password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tenantRoom">Room Number</label>
+                        <input type="text" id="tenantRoom" name="tenantRoom" readonly>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Verify & View Bills</button>
+                    <p class="form-note">Demo login password: <strong>tenant123</strong>. Replace with real backend authentication for production.</p>
+                </form>
+
+                <div id="tenantBillDetails" class="tenant-bills-section" hidden>
+                    <div class="bill-header">
+                        <h3>Bill Summary for <span id="billRoomLabel"></span></h3>
+                        <p id="billStatusText"></p>
+                    </div>
+                    <div class="bill-table-wrapper">
+                        <table class="bill-table">
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="billRows"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🌿 Oasis Learning Hub</h3>
+                    <p>Where Learning Meets Excellence</p>
+                    <p>Premium coaching institute offering Maths, Science, and cricket training for students aged 8-16.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#vision">Vision</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#programs">Programs</a></li>
+                        <li><a href="index.html#videos">Videos</a></li>
+                        <li><a href="index.html#inquiry">Inquiry</a></li>
+                        <li><a href="rental.html">Rentals</a></li>
+                        <li><a href="tenant-bills.html">Tenant Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>📍 Office No.6, Dev Colony, Near Advanta Hospital, Rohtak, 124001</p>
+                    <p>📞 <a href="tel:+919034959859" style="color: inherit; text-decoration: none;">+91 9034959859</a></p>
+                    <p>📧 <a href="mailto:oasislearninghub.xyz@gmail.com" style="color: inherit; text-decoration: none;">oasislearninghub.xyz@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Oasis Learning Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
